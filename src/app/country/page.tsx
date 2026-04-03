@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { countries } from "@/data/countries";
-import { charms } from "@/data/charms";
+import { countries } from "@/data/countries-expanded";
+import { charms } from "@/data/charms/index";
 
 export const metadata: Metadata = {
   title: "Lucky Charms by Country",
@@ -15,27 +15,52 @@ export const metadata: Metadata = {
 };
 
 const REGION_ORDER = [
+  "East Asia",
+  "South Asia",
+  "Southeast Asia",
+  "Central Asia",
+  "Middle East",
+  "North Africa",
+  "Sub-Saharan Africa",
+  "Western Europe",
+  "Northern Europe",
+  "Southern Europe",
+  "Eastern Europe",
+  "North America",
+  "Central America",
+  "South America",
+  "Caribbean",
+  "Oceania",
+  "Pacific Islands",
+  // Fallback for old region names
   "Asia",
   "Europe",
   "Americas",
   "Africa",
-  "Middle East",
-  "Oceania",
 ] as const;
 
 const regionDescriptions: Record<string, string> = {
-  Asia:
-    "Ancient traditions meet modern practice across the world's most populous continent.",
-  Europe:
-    "From Celtic clovers to Mediterranean amulets, Europe's charm heritage spans millennia.",
-  Americas:
-    "Indigenous wisdom blended with colonial influences creates a rich patchwork of beliefs.",
-  Africa:
-    "Some of humanity's oldest protective traditions rooted in ancestral reverence.",
-  "Middle East":
-    "Powerful amulets and sacred symbols at the crossroads of civilisation.",
-  Oceania:
-    "Polynesian and Aboriginal traditions carry deep spiritual resonance.",
+  "East Asia": "Ancient traditions from China, Japan, Korea, and beyond — where lucky charms are woven into daily life.",
+  "South Asia": "A tapestry of Hindu, Buddhist, and folk traditions spanning the Indian subcontinent.",
+  "Southeast Asia": "Spirit houses, sacred amulets, and tropical talismans from the crossroads of civilizations.",
+  "Central Asia": "Nomadic wisdom and Silk Road traditions meet Islamic and shamanic heritage.",
+  "Middle East": "Powerful amulets and sacred symbols at the crossroads of three great religions.",
+  "North Africa": "Ancient Egyptian mysticism blends with Berber and Islamic protective traditions.",
+  "Sub-Saharan Africa": "Some of humanity's oldest protective traditions rooted in ancestral reverence.",
+  "Western Europe": "From four-leaf clovers to chimney sweeps, centuries of folk wisdom endure.",
+  "Northern Europe": "Celtic, Norse, and Viking traditions shape a rich heritage of protective charms.",
+  "Southern Europe": "Mediterranean amulets, evil eye protection, and saints' medals guard against misfortune.",
+  "Eastern Europe": "Slavic folk magic, Orthodox icons, and vibrant egg-painting traditions persist.",
+  "North America": "Indigenous wisdom meets immigrant traditions across a cultural melting pot.",
+  "Central America": "Mayan heritage and Catholic syncretism create unique protective practices.",
+  "South America": "Andean mysticism, Afro-Brazilian spirituality, and colonial traditions intertwine.",
+  Caribbean: "African diaspora traditions meet island folklore in a vibrant tapestry of belief.",
+  Oceania: "Aboriginal Dreamtime and Polynesian spirituality carry deep resonance.",
+  "Pacific Islands": "Island cultures preserve ancient Polynesian and Melanesian lucky traditions.",
+  Asia: "Ancient traditions meet modern practice across the world's most populous continent.",
+  Europe: "From Celtic clovers to Mediterranean amulets, charm heritage spans millennia.",
+  Americas: "Indigenous wisdom blended with colonial influences creates a rich patchwork of beliefs.",
+  Africa: "Some of humanity's oldest protective traditions rooted in ancestral reverence.",
 };
 
 export default function CountriesPage() {

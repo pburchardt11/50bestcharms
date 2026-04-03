@@ -13,8 +13,8 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { value: "50", label: "Ranked Charms" },
-  { value: "30+", label: "Countries" },
+  { value: "500+", label: "Ranked Charms" },
+  { value: "200+", label: "Countries" },
   { value: "6", label: "Categories" },
   { value: "25", label: "Articles" },
 ];
@@ -265,6 +265,9 @@ export default function AboutPage() {
               </Link>
               . We take accuracy seriously and update our content when errors
               are identified.
+            </p>
+            <p className="text-sm text-zinc-500 mt-6 pt-6 border-t border-[#2a2825]">
+              50 Best Charms is a project of 50 Best Limited, Hong Kong.
             </p>
           </div>
         </section>

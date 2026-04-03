@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { charms } from "@/data/charms";
+import { charms } from "@/data/charms/index";
 import { CharmCard } from "@/components/charm-card";
 import { CategoryBadge } from "@/components/category-badge";
 import { StarRating } from "@/components/star-rating";
@@ -83,7 +83,7 @@ export default async function CharmPage({ params }: CharmPageProps) {
               <div className="flex flex-wrap items-center gap-2 mb-4">
                 <CategoryBadge category={charm.category} />
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-[rgba(196,168,124,0.3)] bg-[rgba(196,168,124,0.08)] px-3 py-0.5 text-xs font-semibold text-[#c4a87c]">
-                  #{charm.rank} of 50 in the World
+                  #{charm.rank} of {charms.length} in the World
                 </span>
                 <span className="inline-flex items-center rounded-full border border-[#2a2825] bg-[#1a1918] px-3 py-0.5 text-xs text-[#9a958d]">
                   {charm.origin}

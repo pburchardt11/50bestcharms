@@ -184,6 +184,9 @@ export default function ContactPage() {
             </a>{" "}
             and we'll get back to you.
           </p>
+          <p className="mt-4 text-zinc-600 text-xs text-center">
+            50 Best Limited, Hong Kong
+          </p>
         </section>
 
         {/* Explore links */}

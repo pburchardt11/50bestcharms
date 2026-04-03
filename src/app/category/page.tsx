@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { charms } from "@/data/charms";
+import { charms } from "@/data/charms/index";
 
 export const metadata: Metadata = {
   title: "Lucky Charm Categories",

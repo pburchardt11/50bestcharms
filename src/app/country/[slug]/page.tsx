@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { countries } from "@/data/countries";
-import { charms } from "@/data/charms";
+import { countries } from "@/data/countries-expanded";
+import { charms } from "@/data/charms/index";
 import { CharmCard } from "@/components/charm-card";
 
 interface Props {

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { charms } from "@/data/charms";
+import { charms } from "@/data/charms/index";
 import { CharmCard } from "@/components/charm-card";
 
 interface Props {

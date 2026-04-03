@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MapPin } from "lucide-react";
-import type { Charm } from "@/data/charms";
+import type { Charm } from "@/data/charms/index";
 import { CategoryBadge } from "@/components/category-badge";
 import { StarRating } from "@/components/star-rating";
 

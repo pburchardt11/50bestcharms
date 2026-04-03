@@ -3,6 +3,8 @@ import { Outfit, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import LanguageToggle from "@/components/language-toggle";
+import { buildSearchIndex } from "@/lib/search-index";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -46,15 +48,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const searchItems = buildSearchIndex();
+
   return (
     <html
       lang="en"
       className={`${outfit.variable} ${cormorant.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://translate.googleapis.com" />
+      </head>
       <body className="min-h-full flex flex-col">
-        <SiteHeader />
+        <SiteHeader searchItems={searchItems} />
         <main className="flex-1">{children}</main>
         <SiteFooter />
+        <LanguageToggle />
       </body>
     </html>
   );

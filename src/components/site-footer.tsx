@@ -155,7 +155,7 @@ export function SiteFooter() {
       {/* Bottom bar */}
       <div className="border-t border-[#1a1918]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-zinc-600">
-          <span>&copy; 2026 50bestcharms.com. All rights reserved.</span>
+          <span>&copy; 2026 50 Best Limited, Hong Kong. All rights reserved.</span>
           <span>Exploring lucky traditions across 50+ cultures worldwide.</span>
         </div>
       </div>

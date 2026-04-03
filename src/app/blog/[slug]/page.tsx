@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { blogPosts } from "@/data/blogs";
-import { charms } from "@/data/charms";
+import { charms } from "@/data/charms/index";
 import { CategoryBadge } from "@/components/category-badge";
 import { CharmCard } from "@/components/charm-card";
 

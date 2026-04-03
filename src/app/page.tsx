@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { charms } from "@/data/charms";
-import { countries } from "@/data/countries";
+import { charms } from "@/data/charms/index";
+import { countries } from "@/data/countries-expanded";
 import { blogPosts } from "@/data/blogs";
 import { CharmCard } from "@/components/charm-card";
 import { CategoryBadge } from "@/components/category-badge";
@@ -70,15 +70,15 @@ export default function HomePage() {
           </h1>
 
           <p className="text-lg md:text-xl text-[#9a958d] max-w-2xl mx-auto mb-10 leading-relaxed">
-            Ranked by global popularity across 30+ countries. Explore the origins, meanings,
+            Ranked by global popularity across 200+ countries. Explore the origins, meanings,
             and cultural significance of humanity&apos;s most beloved symbols of fortune.
           </p>
 
           {/* Stats row */}
           <div className="flex items-center justify-center gap-8 md:gap-16">
             {[
-              { value: "50", label: "Charms" },
-              { value: "30+", label: "Countries" },
+              { value: String(charms.length), label: "Charms" },
+              { value: String(countries.length), label: "Countries" },
               { value: "6", label: "Categories" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
@@ -102,16 +102,16 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-12 text-center">
             <h2 className="font-heading text-4xl md:text-5xl text-[#f5f0e8] mb-4">
-              All 50 Lucky Charms, Ranked
+              Top 50 Lucky Charms
             </h2>
             <p className="text-[#9a958d] max-w-xl mx-auto">
-              From the iconic four-leaf clover to the sacred Hamsa hand — every charm, its story,
-              and why the world believes in it.
+              The highest-ranked lucky charms from our collection of {charms.length}. Explore their stories
+              and discover why the world believes in them.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-            {charms.map((charm) => (
+            {charms.slice(0, 50).map((charm) => (
               <CharmCard key={charm.id} charm={charm} />
             ))}
           </div>
@@ -121,7 +121,7 @@ export default function HomePage() {
               href="/charm"
               className="inline-flex items-center gap-2 rounded-full border border-[#c4a87c] px-8 py-3 text-[#c4a87c] hover:bg-[#c4a87c] hover:text-[#080808] transition-colors font-medium"
             >
-              Browse All Charms
+              Browse All {charms.length} Charms →
             </Link>
           </div>
         </div>
