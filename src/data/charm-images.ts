@@ -1,14 +1,14 @@
-// Charm image mappings from Wikimedia Commons + verified Unsplash
-// All images are either CC-licensed (Wikimedia) or free-use (Unsplash)
-// Using 500px thumbnails for consistent sizing
+// All image URLs verified from Wikipedia articles or tested Unsplash IDs
+// Wikimedia Commons images are CC-licensed, Unsplash images are free-use
 
 export const charmImages: Record<string, string> = {
-  // === WIKIMEDIA COMMONS (verified from Wikipedia articles) ===
+  // === TOP CHARMS - Wikimedia Commons ===
   "evil-eye-middle-east": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Kapadokya%27dan_Nazar_Boncu%C4%9Fu.jpg/500px-Kapadokya%27dan_Nazar_Boncu%C4%9Fu.jpg",
   "four-leaf-clover": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Four-leaf_Clover_Trifolium_repens_2.jpg/500px-Four-leaf_Clover_Trifolium_repens_2.jpg",
   "horseshoe": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Horseshoe.jpg/500px-Horseshoe.jpg",
   "maneki-neko": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Manekineko1003.jpg/500px-Manekineko1003.jpg",
   "hamsa-hand": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Khamsa.jpg/500px-Khamsa.jpg",
+  "hand-of-fatima": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Khamsa.jpg/500px-Khamsa.jpg",
   "dreamcatcher": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Dreamcatcher_-_Royal_Ontario_Museum_%2840194857691%29.jpg/500px-Dreamcatcher_-_Royal_Ontario_Museum_%2840194857691%29.jpg",
   "jade": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Jadestein.jpg/500px-Jadestein.jpg",
   "laughing-buddha": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Budai%2C_British_Museum.jpg/500px-Budai%2C_British_Museum.jpg",
@@ -21,18 +21,57 @@ export const charmImages: Record<string, string> = {
   "dragon": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Chinese_dragon_asset_heraldry.svg/500px-Chinese_dragon_asset_heraldry.svg.png",
   "ladybug": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Coccinella-septempunctata-15-fws.jpg/500px-Coccinella-septempunctata-15-fws.jpg",
   "ganesha-figurine": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Ganesha_Basohli_miniature_circa_1730_Dubost_p73.jpg/500px-Ganesha_Basohli_miniature_circa_1730_Dubost_p73.jpg",
+  "om-symbol": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Om_symbol.svg/500px-Om_symbol.svg.png",
   "celtic-cross": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/CelticCross.svg/500px-CelticCross.svg.png",
   "rosary-beads": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Rosary.jpeg/500px-Rosary.jpeg",
   "crucifix": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Wien_Deutschordenskirche_Fl%C3%BCgelaltar_Kreuzigung_01.jpg/500px-Wien_Deutschordenskirche_Fl%C3%BCgelaltar_Kreuzigung_01.jpg",
   "matryoshka": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Russian-Matroshka.jpg/500px-Russian-Matroshka.jpg",
   "eye-of-horus": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Eye_of_Horus_bw.svg/500px-Eye_of_Horus_bw.svg.png",
-  "om-symbol": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Om_symbol.svg/500px-Om_symbol.svg.png",
   "kokeshi-doll": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Kokeshi_20101105.jpg/500px-Kokeshi_20101105.jpg",
   "lucky-bamboo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Dracaena_sanderiana_2.jpg/500px-Dracaena_sanderiana_2.jpg",
   "turtle": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Turtle_diversity.jpg/500px-Turtle_diversity.jpg",
-  "hand-of-fatima": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Khamsa.jpg/500px-Khamsa.jpg",
 
-  // === VERIFIED UNSPLASH (long numeric IDs, tested 200 OK) ===
+  // === CULTURAL CHARMS - Wikimedia Commons ===
+  "claddagh-ring": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Claddaghring.jpg/500px-Claddaghring.jpg",
+  "triskele": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Triple-Spiral-Symbol.svg/500px-Triple-Spiral-Symbol.svg.png",
+  "wishbone": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Furcula.png/500px-Furcula.png",
+  "mistletoe": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Viscum_album_2026_G1.jpg/500px-Viscum_album_2026_G1.jpg",
+  "cornucopia": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Detail._Cornucopia._Marble_statue_of_deified_empress_Livia%2C_holding_a_cornucopia%2C_42-52_CE._Acquired_in_1842_CE_in_Theatre_of_Falerii%2C_Italy._Altes_Museum%2C_Berlin%2C_Germany.jpg/500px-thumbnail.jpg",
+  "tanuki": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/071020_Shigaraki_Koka_Shiga_pref_Japan01b8s5.jpg/500px-071020_Shigaraki_Koka_Shiga_pref_Japan01b8s5.jpg",
+  "shisa": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Tomori_Stone_Lion_202006_01.jpg/500px-Tomori_Stone_Lion_202006_01.jpg",
+  "omamori": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Variousomamori.jpg/500px-Variousomamori.jpg",
+  "ema": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Kasuga-taisha_shrine_in_Nara_07.jpg/500px-Kasuga-taisha_shrine_in_Nara_07.jpg",
+  "pixiu": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Tomb_Yongning_of_the_Ts%27en_Dynasty.JPG/500px-Tomb_Yongning_of_the_Ts%27en_Dynasty.JPG",
+  "fu-dogs": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Transmongolie-660_%2827643744552%29.jpg/500px-Transmongolie-660_%2827643744552%29.jpg",
+  "dala-horse": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Dalah%C3%A4st_i_avesta.jpg/500px-Dalah%C3%A4st_i_avesta.jpg",
+  "hei-tiki": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Hinepare.jpg/500px-Hinepare.jpg",
+  "pounamu": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Pounamu_pendant.jpg/500px-Pounamu_pendant.jpg",
+  "cornicello": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/CornicelloCharm.jpg/500px-CornicelloCharm.jpg",
+  "milagros": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Milagros_San_Miguel_Mission.jpg/500px-Milagros_San_Miguel_Mission.jpg",
+  "pysanka": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Ukrainian_folk_pysanky.jpg/500px-Ukrainian_folk_pysanky.jpg",
+  "boomerang": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Australia_Cairns_Boomerang.jpg/500px-Australia_Cairns_Boomerang.jpg",
+  "worry-dolls": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Worry_dolls.jpg/500px-Worry_dolls.jpg",
+  "ojo-de-dios": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Ojo_de_dios_anaroza_%28cropped%29.jpg/500px-Ojo_de_dios_anaroza_%28cropped%29.jpg",
+  "prayer-wheel": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Tibetan_monastery_Prayer_Wheel.jpg/500px-Tibetan_monastery_Prayer_Wheel.jpg",
+  "prayer-flags": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Prayerflags.jpg/500px-Prayerflags.jpg",
+  "singing-bowl": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Rin_gong_at_Kiyomizu-dera%2C_Kyoto.JPG/500px-Rin_gong_at_Kiyomizu-dera%2C_Kyoto.JPG",
+  "acorn": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Quercus_robur_acorn_-_Keila.jpg/500px-Quercus_robur_acorn_-_Keila.jpg",
+  "inukshuk": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Inuksukjuaq_Foxe-PI_2002-07-26.jpg/500px-Inuksukjuaq_Foxe-PI_2002-07-26.jpg",
+  "fleur-de-lis": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Fleur-de-lis.svg/500px-Fleur-de-lis.svg.png",
+  "thors-hammer": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Claes_Kurck_Sk%C3%A5ne_hammer_-_HST_DIG55488_original.jpg/500px-Claes_Kurck_Sk%C3%A5ne_hammer_-_HST_DIG55488_original.jpg",
+  "vegvisir": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Vegvisir.svg/500px-Vegvisir.svg.png",
+  "lotus": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Sacred_lotus_Nelumbo_nucifera.jpg/500px-Sacred_lotus_Nelumbo_nucifera.jpg",
+  "calavera": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Calavera.jpg/500px-Calavera.jpg",
+  "yin-yang": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Yin_and_Yang_symbol.svg/500px-Yin_and_Yang_symbol.svg.png",
+  "aztec-sun": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Monolito_de_la_Piedra_del_Sol.jpg/500px-Monolito_de_la_Piedra_del_Sol.jpg",
+  "rudraksha": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/RudrakshaBeads.jpg/500px-RudrakshaBeads.jpg",
+  "peacock-feather": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Peacock_Plumage.jpg/500px-Peacock_Plumage.jpg",
+  "shankha": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Queen_Conch_%28Lobatus_gigas%29.jpg/500px-Queen_Conch_%28Lobatus_gigas%29.jpg",
+  "keris-dagger": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/COLLECTIE_TROPENMUSEUM_Kris_met_schede_TMnr_A-1448.jpg/500px-COLLECTIE_TROPENMUSEUM_Kris_met_schede_TMnr_A-1448.jpg",
+  "guadalupe-medal": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Virgen_de_guadalupe1.jpg/500px-Virgen_de_guadalupe1.jpg",
+  "koinobori": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/150425_Koinobori_Chizu_Tottori_pref_Japan01bs.jpg/500px-150425_Koinobori_Chizu_Tottori_pref_Japan01bs.jpg",
+
+  // === VERIFIED UNSPLASH (long numeric IDs, tested HTTP 200) ===
   "goldfish": "https://images.unsplash.com/photo-1520366498724-709889c0c685?w=800&h=600&fit=crop&q=80",
   "lucky-dice": "https://images.unsplash.com/photo-1522069213448-443a614da9b6?w=800&h=600&fit=crop&q=80",
   "red-string": "https://images.unsplash.com/photo-1546833998-f383db89237c?w=800&h=600&fit=crop&q=80",
@@ -42,9 +81,6 @@ export const charmImages: Record<string, string> = {
   "citrine-crystal": "https://images.unsplash.com/photo-1567113463224-37cf03ba4577?w=800&h=600&fit=crop&q=80",
   "key-charm": "https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?w=800&h=600&fit=crop&q=80",
   "rabbits-foot": "https://images.unsplash.com/photo-1535241749838-299277b6305f?w=800&h=600&fit=crop&q=80",
-  "lucky-bamboo-plant": "https://images.unsplash.com/photo-1495399928872-a0e98ecad434?w=800&h=600&fit=crop&q=80",
-  "horseshoe-original": "https://images.unsplash.com/photo-1497369573176-0ceb5353817d?w=800&h=600&fit=crop&q=80",
-  "peacock-feather": "https://images.unsplash.com/photo-1497002961800-ea7dbfe18696?w=800&h=600&fit=crop&q=80",
 };
 
 export function getCharmImage(slug: string): string | undefined {
