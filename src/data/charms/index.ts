@@ -1,31 +1,49 @@
-// Re-export from original charms data until batch files are ready
-// Once all batch files exist, switch to the batched import below
-
 export type { Charm } from "./types";
 import type { Charm } from "./types";
+import { batch01 } from "./batch-01-east-asia";
+import { batch02 } from "./batch-02-south-southeast-asia";
+import { batch03 } from "./batch-03-europe-west";
+import { batch04 } from "./batch-04-europe-east";
+import { batch05 } from "./batch-05-middle-east-north-africa";
+import { batch06 } from "./batch-06-sub-saharan-africa";
+import { batch07 } from "./batch-07-americas";
+import { batch08 } from "./batch-08-oceania-crystals";
+import { batch09 } from "./batch-09-universal-religious";
 
-// Import from original data file
-import { charms as originalCharms } from "../charms";
+// Combine all batches and assign ranks by id order
+const allCharms: Charm[] = [
+  ...batch01,
+  ...batch02,
+  ...batch03,
+  ...batch04,
+  ...batch05,
+  ...batch06,
+  ...batch07,
+  ...batch08,
+  ...batch09,
+]
+  .sort((a, b) => a.id - b.id)
+  .map((charm, index) => ({
+    ...charm,
+    rank: index + 1,
+  }));
 
-export const charms: Charm[] = originalCharms.map((charm, index) => ({
-  ...charm,
-  rank: index + 1,
-}));
+export const charms = allCharms;
 
 export function getCharmBySlug(slug: string): Charm | undefined {
-  return charms.find((c) => c.slug === slug);
+  return allCharms.find((c) => c.slug === slug);
 }
 
 export function getCharmsByCategory(category: string): Charm[] {
-  return charms.filter((c) => c.category === category);
+  return allCharms.filter((c) => c.category === category);
 }
 
 export function getCharmsByCountry(countrySlug: string): Charm[] {
-  return charms.filter((c) => c.countries.includes(countrySlug));
+  return allCharms.filter((c) => c.countries.includes(countrySlug));
 }
 
 export function getRelatedCharms(slugs: string[]): Charm[] {
-  return charms.filter((c) => slugs.includes(c.slug));
+  return allCharms.filter((c) => slugs.includes(c.slug));
 }
 
 export const categories = [
