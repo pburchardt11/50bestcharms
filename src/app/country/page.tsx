@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 };
 
 const REGION_ORDER = [
+  // Current data format
   "East Asia",
   "South Asia",
   "Southeast Asia",
@@ -22,6 +23,17 @@ const REGION_ORDER = [
   "Middle East",
   "North Africa",
   "Sub-Saharan Africa",
+  "Europe - Western",
+  "Europe - Northern",
+  "Europe - Southern",
+  "Europe - Eastern",
+  "Americas - North",
+  "Americas - Central",
+  "Americas - South",
+  "Americas - Caribbean",
+  "Oceania",
+  "Pacific",
+  // Alternative format names
   "Western Europe",
   "Northern Europe",
   "Southern Europe",
@@ -30,9 +42,7 @@ const REGION_ORDER = [
   "Central America",
   "South America",
   "Caribbean",
-  "Oceania",
   "Pacific Islands",
-  // Fallback for old region names
   "Asia",
   "Europe",
   "Americas",
@@ -44,6 +54,15 @@ const regionDescriptions: Record<string, string> = {
   "South Asia": "A tapestry of Hindu, Buddhist, and folk traditions spanning the Indian subcontinent.",
   "Southeast Asia": "Spirit houses, sacred amulets, and tropical talismans from the crossroads of civilizations.",
   "Central Asia": "Nomadic wisdom and Silk Road traditions meet Islamic and shamanic heritage.",
+  "Europe - Western": "From four-leaf clovers to chimney sweeps, centuries of folk wisdom endure.",
+  "Europe - Northern": "Celtic, Norse, and Viking traditions shape a rich heritage of protective charms.",
+  "Europe - Southern": "Mediterranean amulets, evil eye protection, and saints' medals guard against misfortune.",
+  "Europe - Eastern": "Slavic folk magic, Orthodox icons, and vibrant egg-painting traditions persist.",
+  "Americas - North": "Indigenous wisdom meets immigrant traditions across a cultural melting pot.",
+  "Americas - Central": "Mayan heritage and Catholic syncretism create unique protective practices.",
+  "Americas - South": "Andean mysticism, Afro-Brazilian spirituality, and colonial traditions intertwine.",
+  "Americas - Caribbean": "African diaspora traditions meet island folklore in a vibrant tapestry of belief.",
+  "Pacific": "Island cultures preserve ancient Polynesian and Melanesian lucky traditions.",
   "Middle East": "Powerful amulets and sacred symbols at the crossroads of three great religions.",
   "North Africa": "Ancient Egyptian mysticism blends with Berber and Islamic protective traditions.",
   "Sub-Saharan Africa": "Some of humanity's oldest protective traditions rooted in ancestral reverence.",
