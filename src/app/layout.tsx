@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/site-footer";
 import LanguageToggle from "@/components/language-toggle";
 import { buildSearchIndex } from "@/lib/search-index";
 import { countries } from "@/data/countries-expanded";
+import { WebsiteSchema } from "@/lib/structured-data";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -71,6 +72,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col">
+        <WebsiteSchema />
         <SiteHeader searchItems={searchItems} countryList={countryList} />
         <main className="flex-1">{children}</main>
         <SiteFooter />

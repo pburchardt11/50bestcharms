@@ -72,12 +72,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const config = categoryConfig[slug as CategorySlug];
   if (!config) return {};
+
+  const title = `${config.name} Lucky Charms - Best Good Luck Symbols for ${config.name} | 50 Best Charms`;
+  const description = `${config.description}. Browse the world's most powerful lucky charms for ${config.name.toLowerCase()} — sourced from cultures across every continent.`;
+  const url = `https://www.50bestcharms.com/category/${slug}`;
+
   return {
-    title: `${config.name} Charms`,
-    description: `${config.description}. Browse the top lucky charms for ${config.name.toLowerCase()} from cultures around the world.`,
+    title,
+    description,
+    keywords: [
+      `${config.name.toLowerCase()} lucky charms`,
+      `${config.name.toLowerCase()} good luck symbols`,
+      `best charms for ${config.name.toLowerCase()}`,
+      `${config.name.toLowerCase()} talismans`,
+      "lucky charm",
+      "good luck symbol",
+    ],
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
-      title: `${config.name} Lucky Charms | 50 Best Charms`,
-      description: config.description,
+      title,
+      description,
+      url,
+      siteName: "50 Best Charms",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }

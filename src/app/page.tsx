@@ -4,6 +4,7 @@ import { countries } from "@/data/countries-expanded";
 import { blogPosts } from "@/data/blogs";
 import { CharmCard } from "@/components/charm-card";
 import { CategoryBadge } from "@/components/category-badge";
+import { ItemListSchema } from "@/lib/structured-data";
 
 const categories = [
   {
@@ -55,7 +56,15 @@ export default function HomePage() {
   const charmCountByCountry = (countrySlug: string) =>
     charms.filter((c) => c.countries.includes(countrySlug)).length;
 
+  const top50Items = charms.slice(0, 50).map((charm) => ({
+    name: charm.name,
+    url: `https://www.50bestcharms.com/charm/${charm.slug}`,
+    position: charm.rank,
+  }));
+
   return (
+    <>
+      <ItemListSchema items={top50Items} />
     <div className="min-h-screen bg-[#080808]">
       {/* ─── Hero ─────────────────────────────────────────────────────── */}
       <section className="hero-gradient relative overflow-hidden py-24 md:py-36 px-4">
@@ -260,5 +269,6 @@ export default function HomePage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

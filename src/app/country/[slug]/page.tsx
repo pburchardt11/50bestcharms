@@ -17,12 +17,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const country = countries.find((c) => c.slug === slug);
   if (!country) return {};
+
+  const title = `Lucky Charms in ${country.name} - Traditional Good Luck Symbols | 50 Best Charms`;
+  const description = `Discover the most beloved lucky charms and good luck symbols from ${country.name}. Explore centuries-old charm traditions from ${country.region} and their meanings.`;
+  const url = `https://www.50bestcharms.com/country/${slug}`;
+
   return {
-    title: `Lucky Charms of ${country.name}`,
-    description: `Explore the most popular lucky charms, symbols, and talismans from ${country.name}. Discover the rich charm traditions of ${country.region}.`,
+    title,
+    description,
+    keywords: [
+      `${country.name} lucky charms`,
+      `${country.name} good luck symbols`,
+      `${country.name} talismans`,
+      `${country.region} lucky charms`,
+      `traditional charms ${country.name}`,
+      "lucky charm",
+      "good luck symbol",
+    ],
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
-      title: `Lucky Charms of ${country.name} | 50 Best Charms`,
-      description: `Explore the most popular lucky charms from ${country.name}.`,
+      title,
+      description,
+      url,
+      siteName: "50 Best Charms",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }

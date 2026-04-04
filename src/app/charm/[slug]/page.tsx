@@ -5,6 +5,7 @@ import { charms } from "@/data/charms/index";
 import { CharmCard } from "@/components/charm-card";
 import { CategoryBadge } from "@/components/category-badge";
 import { StarRating } from "@/components/star-rating";
+import { BreadcrumbSchema, FAQSchema } from "@/lib/structured-data";
 
 interface CharmPageProps {
   params: Promise<{ slug: string }>;
@@ -22,13 +23,41 @@ export async function generateMetadata({ params }: CharmPageProps): Promise<Meta
     return { title: "Charm Not Found" };
   }
 
+  const title = `${charm.name} - Origin, Meaning & How to Use | 50 Best Charms`;
+  const description = charm.shortDescription.length > 155
+    ? charm.shortDescription.slice(0, 152) + "..."
+    : charm.shortDescription;
+  const url = `https://www.50bestcharms.com/charm/${slug}`;
+  const keywords = [
+    charm.name,
+    `${charm.name} charm`,
+    `${charm.name} meaning`,
+    `${charm.name} origin`,
+    `lucky charm`,
+    `good luck symbol`,
+    charm.category,
+    charm.origin,
+    ...charm.countries.slice(0, 3).map((c) => `${c.replace(/-/g, " ")} lucky charm`),
+  ];
+
   return {
-    title: `${charm.name} – #${charm.rank} Lucky Charm`,
-    description: charm.shortDescription,
+    title,
+    description,
+    keywords,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
-      title: `${charm.name} – #${charm.rank} Lucky Charm`,
-      description: charm.shortDescription,
+      title,
+      description,
+      url,
+      siteName: "50 Best Charms",
       type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }
@@ -46,7 +75,18 @@ export default async function CharmPage({ params }: CharmPageProps) {
     .filter(Boolean)
     .slice(0, 4) as (typeof charms)[number][];
 
+  const charmUrl = `https://www.50bestcharms.com/charm/${charm.slug}`;
+
   return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://www.50bestcharms.com" },
+          { name: "Charms", url: "https://www.50bestcharms.com/charm" },
+          { name: charm.name, url: charmUrl },
+        ]}
+      />
+      {charm.faq.length > 0 && <FAQSchema items={charm.faq} />}
     <div className="min-h-screen bg-[#080808]">
       {/* ─── Hero ─────────────────────────────────────────────────────── */}
       <section className="hero-gradient relative overflow-hidden py-16 md:py-24 px-4 border-b border-[#2a2825]">

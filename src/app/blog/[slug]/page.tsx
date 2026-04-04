@@ -18,15 +18,33 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = blogPosts.find((p) => p.slug === slug);
   if (!post) return {};
+
+  const title = `${post.title} | 50 Best Charms Blog`;
+  const description = post.excerpt.length > 155
+    ? post.excerpt.slice(0, 152) + "..."
+    : post.excerpt;
+  const url = `https://www.50bestcharms.com/blog/${slug}`;
+
   return {
-    title: post.title,
-    description: post.excerpt,
+    title,
+    description,
+    keywords: post.tags,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
-      title: `${post.title} | 50 Best Charms`,
-      description: post.excerpt,
+      title,
+      description,
+      url,
+      siteName: "50 Best Charms",
       type: "article",
       publishedTime: post.publishedAt,
       authors: [post.author],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
   };
 }
