@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { charms } from "@/data/charms/index";
 import { CharmCard } from "@/components/charm-card";
 import { CategoryBadge } from "@/components/category-badge";
 import { StarRating } from "@/components/star-rating";
 import { BreadcrumbSchema, FAQSchema } from "@/lib/structured-data";
+import { getCharmImage } from "@/data/charm-images";
 
 interface CharmPageProps {
   params: Promise<{ slug: string }>;
@@ -76,6 +78,7 @@ export default async function CharmPage({ params }: CharmPageProps) {
     .slice(0, 4) as (typeof charms)[number][];
 
   const charmUrl = `https://www.50bestcharms.com/charm/${charm.slug}`;
+  const imageUrl = getCharmImage(charm.slug);
 
   return (
     <>
@@ -88,8 +91,22 @@ export default async function CharmPage({ params }: CharmPageProps) {
       />
       {charm.faq.length > 0 && <FAQSchema items={charm.faq} />}
     <div className="min-h-screen bg-[#080808]">
+      {/* ─── Hero Image ───────────────────────────────────────────────── */}
+      {imageUrl && (
+        <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden">
+          <Image
+            src={imageUrl}
+            alt={charm.imageAlt || charm.name}
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#080808] via-[#080808]/60 to-transparent" />
+        </div>
+      )}
       {/* ─── Hero ─────────────────────────────────────────────────────── */}
-      <section className="hero-gradient relative overflow-hidden py-16 md:py-24 px-4 border-b border-[#2a2825]">
+      <section className={`hero-gradient relative overflow-hidden ${imageUrl ? "pt-8 pb-16" : "py-16 md:py-24"} px-4 border-b border-[#2a2825]`}>
         <div className="mx-auto max-w-4xl">
           {/* Breadcrumbs */}
           <nav
