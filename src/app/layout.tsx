@@ -19,6 +19,9 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
+  verification: {
+    google: "mXOnBeTf_lp0vhW51jZSag38qSrh5pUv7uso8dVzCPA",
+  },
   title: {
     default: "50 Best Charms - The World's Most Popular Lucky Charms Ranked",
     template: "%s | 50 Best Charms",
