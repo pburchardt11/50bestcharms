@@ -64,6 +64,11 @@ export default function RootLayout({
     >
       <head>
         <link rel="preconnect" href="https://translate.googleapis.com" />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2057309335537732"
+          crossOrigin="anonymous"
+        />
       </head>
       <body className="min-h-full flex flex-col">
         <SiteHeader searchItems={searchItems} countryList={countryList} />
