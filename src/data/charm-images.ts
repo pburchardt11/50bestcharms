@@ -176,7 +176,7 @@ export const charmImages: Record<string, string> = {
   "garnet": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Garnet_Andradite20.jpg/500px-Garnet_Andradite20.jpg",
   "georgian-grapevine-cross": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/SaintNinoCross.jpg/500px-SaintNinoCross.jpg",
   "ghanaian-fertility-doll-akuaba": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Akuaba.jpg/500px-Akuaba.jpg",
-  "gluckspfennig": "https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?w=800&h=600&fit=crop&q=80",
+  "gluckspfennig": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/US_One_Cent_Obv.png/500px-US_One_Cent_Obv.png",
   "golden-toad": "https://upload.wikimedia.org/wikipedia/commons/2/26/Moneyfrog.jpg",
   "goldfish": "https://images.unsplash.com/photo-1520366498724-709889c0c685?w=800&h=600&fit=crop&q=80",
   "goldfish-chinese": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Gold_fish1.jpg/500px-Gold_fish1.jpg",
