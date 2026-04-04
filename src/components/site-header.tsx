@@ -31,9 +31,16 @@ interface SearchItem {
   href: string;
 }
 
-export function SiteHeader({ searchItems = [] }: { searchItems?: SearchItem[] }) {
+interface CountryNav {
+  name: string;
+  slug: string;
+  flag: string;
+}
+
+export function SiteHeader({ searchItems = [], countryList = [] }: { searchItems?: SearchItem[]; countryList?: CountryNav[] }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [catOpen, setCatOpen] = useState(false);
+  const [countryOpen, setCountryOpen] = useState(false);
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
   const toggleMenu = useCallback(() => setMenuOpen((prev) => !prev), []);
@@ -101,12 +108,40 @@ export function SiteHeader({ searchItems = [] }: { searchItems?: SearchItem[] })
               >
                 Rankings
               </a>
-              <a
-                href="/country"
-                className="px-3 py-2 text-sm text-zinc-400 hover:text-[#c4a87c] rounded-lg hover:bg-[#c4a87c]/5 transition-all duration-200"
+              {/* Countries dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setCountryOpen(true)}
+                onMouseLeave={() => setCountryOpen(false)}
               >
-                Countries
-              </a>
+                <a
+                  href="/country"
+                  className="inline-flex items-center gap-1 px-3 py-2 text-sm text-zinc-400 hover:text-[#c4a87c] rounded-lg hover:bg-[#c4a87c]/5 transition-all duration-200"
+                >
+                  Countries
+                  <ChevronDown size={14} className={`transition-transform ${countryOpen ? "rotate-180" : ""}`} />
+                </a>
+                {countryOpen && (
+                  <div className="absolute top-full left-0 mt-1 w-56 max-h-[70vh] overflow-y-auto bg-[#121210] border border-[#2a2825] rounded-xl shadow-xl py-1 z-50">
+                    <a
+                      href="/country"
+                      className="flex items-center gap-2 px-4 py-2.5 text-sm text-[#c4a87c] font-medium hover:bg-[#c4a87c]/5 transition-all border-b border-[#2a2825]"
+                    >
+                      All Countries →
+                    </a>
+                    {countryList.map((c) => (
+                      <a
+                        key={c.slug}
+                        href={`/country/${c.slug}`}
+                        className="flex items-center gap-2.5 px-4 py-2 text-sm text-zinc-400 hover:text-[#c4a87c] hover:bg-[#c4a87c]/5 transition-all"
+                      >
+                        <span className="text-base leading-none">{c.flag}</span>
+                        <span>{c.name}</span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
 
               {/* Categories dropdown */}
               <div

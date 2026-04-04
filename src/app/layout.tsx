@@ -5,6 +5,7 @@ import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import LanguageToggle from "@/components/language-toggle";
 import { buildSearchIndex } from "@/lib/search-index";
+import { countries } from "@/data/countries-expanded";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -52,6 +53,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const searchItems = buildSearchIndex();
+  const countryList = [...countries]
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .map((c) => ({ name: c.name, slug: c.slug, flag: c.flag }));
 
   return (
     <html
@@ -62,7 +66,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://translate.googleapis.com" />
       </head>
       <body className="min-h-full flex flex-col">
-        <SiteHeader searchItems={searchItems} />
+        <SiteHeader searchItems={searchItems} countryList={countryList} />
         <main className="flex-1">{children}</main>
         <SiteFooter />
         <LanguageToggle />
