@@ -32,6 +32,7 @@ export function CharmCard({ charm }: CharmCardProps) {
 
   return (
     <Link
+      id={`rank-${charm.rank}`}
       href={`/charm/${charm.slug}`}
       className="block group"
       aria-label={`View ${charm.name} – ranked #${charm.rank}`}

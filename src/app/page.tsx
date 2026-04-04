@@ -127,7 +127,7 @@ export default function HomePage() {
 
           <div className="mt-10 text-center">
             <Link
-              href="/charm"
+              href="/charm#rank-51"
               className="inline-flex items-center gap-2 rounded-full border border-[#c4a87c] px-8 py-3 text-[#c4a87c] hover:bg-[#c4a87c] hover:text-[#080808] transition-colors font-medium"
             >
               Browse All {charms.length} Charms →
