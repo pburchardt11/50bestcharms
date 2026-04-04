@@ -80,7 +80,7 @@ export function SiteHeader({ searchItems = [], countryList = [] }: { searchItems
               aria-label="50BestCharms home"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.svg" alt="50 Best Charms" className="h-10" />
+              <img src="/logo.svg" alt="50 Best Charms" className="h-8" />
             </Link>
 
             {/* Desktop nav */}
