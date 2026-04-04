@@ -34,7 +34,7 @@ export const charmImages: Record<string, string> = {
   "star": "https://images.unsplash.com/photo-1677804444783-3bb00c73750c?w=800&h=600&fit=crop&q=80",
   "lucky-dice": "https://images.unsplash.com/photo-1522069213448-443a614da9b6?w=800&h=600&fit=crop&q=80",
   "red-string": "https://images.unsplash.com/photo-1546833998-f383db89237c?w=800&h=600&fit=crop&q=80",
-  "rabbits-foot": "https://images.unsplash.com/photo-1585110396000-c9ffd4e4be3b?w=800&h=600&fit=crop&q=80",
+  "rabbits-foot": "https://images.unsplash.com/photo-1535241749838-299277b6305f?w=800&h=600&fit=crop&q=80",
   "evil-eye-bracelet": "https://images.unsplash.com/photo-1647638162212-51180c35deae?w=800&h=600&fit=crop&q=80",
   "evil-eye-bracelet-american": "https://images.unsplash.com/photo-1647638162212-51180c35deae?w=800&h=600&fit=crop&q=80",
   "horseshoe-crab": "https://images.unsplash.com/photo-1591375870101-77e9e690e27c?w=800&h=600&fit=crop&q=80",
