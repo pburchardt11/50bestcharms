@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useCallback, useEffect } from "react";
-import { Menu, X, Sparkles, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { GlobalSearch } from "./global-search";
 
 const NAV_LINKS = [
@@ -75,29 +75,12 @@ export function SiteHeader({ searchItems = [], countryList = [] }: { searchItems
             {/* Logo */}
             <Link
               href="/"
-              className="inline-flex items-center gap-2 group shrink-0"
+              className="inline-flex items-center shrink-0 hover:opacity-90 transition-opacity"
               onClick={closeMenu}
               aria-label="50BestCharms home"
             >
-              <Sparkles
-                size={16}
-                className="text-[#c4a87c] group-hover:text-[#d4bc96] transition-colors duration-200"
-              />
-              <span className="font-heading text-xl tracking-wide">
-                <span
-                  className="font-bold"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, #c4a87c 0%, #d4bc96 50%, #a08a64 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  50BEST
-                </span>
-                <span className="text-[#f5f0e8] ml-1">Charms</span>
-              </span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.svg" alt="50 Best Charms" className="h-10" />
             </Link>
 
             {/* Desktop nav */}
@@ -229,19 +212,9 @@ export function SiteHeader({ searchItems = [], countryList = [] }: { searchItems
       >
         {/* Drawer header */}
         <div className="flex items-center justify-between px-5 h-16 border-b border-[#2a2825] shrink-0">
-          <Link href="/" className="font-heading text-lg" onClick={closeMenu}>
-            <span
-              className="font-bold"
-              style={{
-                background: "linear-gradient(135deg, #c4a87c 0%, #d4bc96 50%, #a08a64 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              50BEST
-            </span>
-            <span className="text-[#f5f0e8] ml-1">Charms</span>
+          <Link href="/" onClick={closeMenu}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="50 Best Charms" className="h-8" />
           </Link>
           <button
             type="button"

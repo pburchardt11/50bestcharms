@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { charms } from "@/data/charms/index";
 import { CharmCard } from "@/components/charm-card";
+import { BreadcrumbSchema, CollectionPageSchema } from "@/lib/structured-data";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -118,7 +119,23 @@ export default async function CategoryPage({ params }: Props) {
     .filter((charm) => charm.category === slug)
     .sort((a, b) => a.rank - b.rank);
 
+  const categoryUrl = `https://www.50bestcharms.com/category/${slug}`;
+  const categoryDescription = `${config.description}. Browse the top lucky charms for ${config.name.toLowerCase()} from cultures around the world.`;
+
   return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://www.50bestcharms.com" },
+          { name: "Categories", url: "https://www.50bestcharms.com/category" },
+          { name: config.name, url: categoryUrl },
+        ]}
+      />
+      <CollectionPageSchema
+        name={`${config.name} Lucky Charms`}
+        description={categoryDescription}
+        url={categoryUrl}
+      />
     <div className="min-h-screen bg-[#080808]">
       {/* Hero */}
       <section className="hero-gradient border-b border-[#2a2825]">
@@ -216,5 +233,6 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       </div>
     </div>
+    </>
   );
 }

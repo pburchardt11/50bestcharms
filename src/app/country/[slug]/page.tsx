@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { countries } from "@/data/countries-expanded";
 import { charms } from "@/data/charms/index";
 import { CharmCard } from "@/components/charm-card";
+import { BreadcrumbSchema, CollectionPageSchema } from "@/lib/structured-data";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -67,7 +68,23 @@ export default async function CountryPage({ params }: Props) {
     .split("\n\n")
     .filter((p) => p.trim().length > 0);
 
+  const countryUrl = `https://www.50bestcharms.com/country/${country.slug}`;
+  const countryDescription = `Explore the most popular lucky charms, symbols, and talismans from ${country.name}. Discover the rich charm traditions of ${country.region}.`;
+
   return (
+    <>
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://www.50bestcharms.com" },
+          { name: "Countries", url: "https://www.50bestcharms.com/country" },
+          { name: country.name, url: countryUrl },
+        ]}
+      />
+      <CollectionPageSchema
+        name={`Lucky Charms of ${country.name}`}
+        description={countryDescription}
+        url={countryUrl}
+      />
     <div className="min-h-screen bg-[#080808]">
       {/* Hero */}
       <section className="hero-gradient border-b border-[#2a2825]">
@@ -174,5 +191,6 @@ export default async function CountryPage({ params }: Props) {
         </div>
       </div>
     </div>
+    </>
   );
 }

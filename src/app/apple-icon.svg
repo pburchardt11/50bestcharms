@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4af37"/>
+      <stop offset="50%" stop-color="#c4a87c"/>
+      <stop offset="100%" stop-color="#d4af37"/>
+    </linearGradient>
+  </defs>
+  <rect width="180" height="180" rx="32" fill="#080808"/>
+  <text x="90" y="105" font-family="Georgia, serif" font-size="72" font-weight="700" fill="url(#g)" text-anchor="middle">50</text>
+  <text x="90" y="135" font-family="sans-serif" font-size="22" font-weight="600" fill="#c4a87c" letter-spacing="6" text-anchor="middle">BEST</text>
+</svg>

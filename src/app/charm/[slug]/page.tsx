@@ -272,5 +272,6 @@ export default async function CharmPage({ params }: CharmPageProps) {
         </div>
       </div>
     </div>
+    </>
   );
 }

@@ -5,6 +5,7 @@ import { blogPosts } from "@/data/blogs";
 import { charms } from "@/data/charms/index";
 import { CategoryBadge } from "@/components/category-badge";
 import { CharmCard } from "@/components/charm-card";
+import { ArticleSchema, BreadcrumbSchema } from "@/lib/structured-data";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -226,7 +227,24 @@ export default async function BlogArticlePage({ params }: Props) {
     )
     .slice(0, 3);
 
+  const postUrl = `https://www.50bestcharms.com/blog/${post.slug}`;
+
   return (
+    <>
+      <ArticleSchema
+        title={post.title}
+        description={post.excerpt}
+        datePublished={post.publishedAt}
+        author={post.author}
+        url={postUrl}
+      />
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://www.50bestcharms.com" },
+          { name: "Blog", url: "https://www.50bestcharms.com/blog" },
+          { name: post.title, url: postUrl },
+        ]}
+      />
     <div className="min-h-screen bg-[#080808]">
       {/* Article header */}
       <section className="hero-gradient border-b border-[#2a2825]">
@@ -370,5 +388,6 @@ export default async function BlogArticlePage({ params }: Props) {
         </Link>
       </div>
     </div>
+    </>
   );
 }
