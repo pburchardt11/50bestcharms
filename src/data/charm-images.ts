@@ -539,7 +539,7 @@ export const charmImages: Record<string, string> = {
   "zulu-love-letter": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Zulu_Culture%2C_KwaZulu-Natal%2C_South_Africa_%2820325329170%29.jpg",
   "zulu-love-letter-beadwork": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Zulu_Culture%2C_KwaZulu-Natal%2C_South_Africa_%2820325329170%29.jpg",
   "zulu-shield": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Zulu_Culture%2C_KwaZulu-Natal%2C_South_Africa_%2820325329170%29.jpg/500px-Zulu_Culture%2C_KwaZulu-Natal%2C_South_Africa_%2820325329170%29.jpg",
-  "dream-pillow": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Prayerflags.jpg/500px-Prayerflags.jpg",
+  "dream-pillow": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Single_lavender_flower02.jpg/500px-Single_lavender_flower02.jpg",
   "takrut-scroll": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Benjapakee_2.png/500px-Benjapakee_2.png",
 };
 
