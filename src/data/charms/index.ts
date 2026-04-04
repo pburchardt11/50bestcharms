@@ -9,9 +9,13 @@ import { batch06 } from "./batch-06-sub-saharan-africa";
 import { batch07 } from "./batch-07-americas";
 import { batch08 } from "./batch-08-oceania-crystals";
 import { batch09 } from "./batch-09-universal-religious";
+import { globalRanking } from "./ranking";
 
-// Combine all batches and assign ranks by id order
-const allCharms: Charm[] = [
+// Combine all batches, deduplicate by slug (keep first occurrence), then rank
+const slugSeen = new Set<string>();
+const deduped: Charm[] = [];
+
+for (const charm of [
   ...batch01,
   ...batch02,
   ...batch03,
@@ -21,8 +25,21 @@ const allCharms: Charm[] = [
   ...batch07,
   ...batch08,
   ...batch09,
-]
-  .sort((a, b) => a.id - b.id)
+]) {
+  if (!slugSeen.has(charm.slug)) {
+    slugSeen.add(charm.slug);
+    deduped.push(charm);
+  }
+}
+
+// Sort by global ranking (ranked charms first, unranked at the end by id)
+const maxRank = Object.keys(globalRanking).length + 1;
+const allCharms: Charm[] = deduped
+  .sort((a, b) => {
+    const rankA = globalRanking[a.slug] ?? maxRank + a.id;
+    const rankB = globalRanking[b.slug] ?? maxRank + b.id;
+    return rankA - rankB;
+  })
   .map((charm, index) => ({
     ...charm,
     rank: index + 1,
