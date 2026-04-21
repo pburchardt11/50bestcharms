@@ -152,6 +152,25 @@ export function SiteFooter() {
         </div>
       </div>
 
+      {/* 50 Best Network */}
+      <div className="border-t border-[#1a1918]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center">
+          <div className="text-[10px] font-semibold tracking-[1.5px] uppercase text-[#c4a87c] mb-2">50 Best Network</div>
+          <div className="flex justify-center flex-wrap gap-x-4 gap-y-1">
+            {[
+              { name: '50 Best Bar', url: 'https://www.50bestbar.com' },
+              { name: '50 Best Peptides', url: 'https://www.50bestpeptides.com' },
+              { name: '50 Best Hotels', url: 'https://www.50besthotels.com' },
+              { name: '50 Best Spa', url: 'https://www.50bestspa.com' },
+              { name: '50 Best Museums', url: 'https://www.50bestmuseums.com' },
+              { name: '50 Best Games', url: 'https://www.50bestgames.com' },
+            ].map(site => (
+              <a key={site.url} href={site.url} target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-600 hover:text-zinc-400 transition-colors">{site.name}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Bottom bar */}
       <div className="border-t border-[#1a1918]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-zinc-600">
