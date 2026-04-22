@@ -34,26 +34,28 @@ export function buildSearchIndex(): SearchItem[] {
     });
   }
 
-  // Add countries
+  // Add countries with charm counts
   for (const country of countries) {
+    const charmCount = country.charmSlugs?.length || 0;
     items.push({
       type: "country",
       name: country.name,
       slug: country.slug,
       emoji: country.flag || "\u{1F30D}",
-      subtitle: country.region,
+      subtitle: `${country.region} \u2022 ${charmCount} lucky charms \u2022 View top 50`,
       href: `/country/${country.slug}`,
     });
   }
 
   // Add categories
   for (const cat of CATEGORIES) {
+    const count = charms.filter((c) => c.category === cat.slug).length;
     items.push({
       type: "category",
       name: cat.name,
       slug: cat.slug,
       emoji: cat.emoji,
-      subtitle: cat.description,
+      subtitle: `${count} charms \u2022 ${cat.description}`,
       href: `/category/${cat.slug}`,
     });
   }

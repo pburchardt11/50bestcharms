@@ -32,13 +32,17 @@ export function GlobalSearch({ items }: { items: SearchItem[] }) {
             item.slug.includes(q)
           );
         })
-        .slice(0, 12)
+        .slice(0, 20)
     : [];
 
   // Group results by type
   const charmResults = results.filter((r) => r.type === "charm");
   const countryResults = results.filter((r) => r.type === "country");
   const categoryResults = results.filter((r) => r.type === "category");
+
+  // If a country matches, show countries first
+  const countryFirst = countryResults.length > 0 &&
+    countryResults.some((c) => c.name.toLowerCase().startsWith(query.toLowerCase()));
 
   const handleSelect = useCallback(
     (item: SearchItem) => {
@@ -217,12 +221,26 @@ export function GlobalSearch({ items }: { items: SearchItem[] }) {
 
               {query.length >= 2 && results.length > 0 && (
                 <div className="py-2">
-                  {renderSection("Charms", charmResults, 0)}
-                  {renderSection("Countries", countryResults, charmResults.length)}
-                  {renderSection(
-                    "Categories",
-                    categoryResults,
-                    charmResults.length + countryResults.length
+                  {countryFirst ? (
+                    <>
+                      {renderSection("Countries — View Top 50 Charms", countryResults, 0)}
+                      {renderSection("Charms", charmResults, countryResults.length)}
+                      {renderSection(
+                        "Categories",
+                        categoryResults,
+                        countryResults.length + charmResults.length
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      {renderSection("Charms", charmResults, 0)}
+                      {renderSection("Countries — View Top 50 Charms", countryResults, charmResults.length)}
+                      {renderSection(
+                        "Categories",
+                        categoryResults,
+                        charmResults.length + countryResults.length
+                      )}
+                    </>
                   )}
                 </div>
               )}
