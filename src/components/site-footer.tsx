@@ -165,6 +165,8 @@ export function SiteFooter() {
               { name: '50 Best Museums', url: 'https://www.50bestmuseums.com' },
               { name: '50 Best Games', url: 'https://www.50bestgames.com' },
               { name: '50 Best Bakeries', url: 'https://www.50bestbakeries.com' },
+              { name: '50 Best Neighborhoods', url: 'https://www.50bestneighborhoods.com' },
+              { name: '50 Holy Sites', url: 'https://www.50holysites.com' },
             ].map(site => (
               <a key={site.url} href={site.url} target="_blank" rel="noopener noreferrer" className="text-xs text-zinc-600 hover:text-zinc-400 transition-colors">{site.name}</a>
             ))}
