@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Mail, Sparkles } from "lucide-react";
+import { useState } from "react";
 
 const CATEGORY_LINKS = [
   { label: "Wealth", href: "/category/wealth" },
@@ -46,6 +47,77 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
         {children}
       </Link>
     </li>
+  );
+}
+
+function SubscribeForm() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setStatus("success");
+        setMessage(data.message);
+        setEmail("");
+      } else {
+        setStatus("error");
+        setMessage(data.error);
+      }
+    } catch {
+      setStatus("error");
+      setMessage("Something went wrong. Please try again.");
+    }
+  };
+
+  if (status === "success") {
+    return (
+      <div className="flex items-center gap-2 text-sm text-[#c4a87c] py-2.5">
+        <Sparkles size={16} />
+        <span>{message}</span>
+      </div>
+    );
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full sm:w-auto">
+      <div className="flex gap-2">
+        <label htmlFor="footer-email" className="sr-only">Email address</label>
+        <div className="relative flex-1 sm:w-56">
+          <Mail size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none" />
+          <input
+            id="footer-email"
+            type="email"
+            value={email}
+            onChange={(e) => { setEmail(e.target.value); setStatus("idle"); }}
+            placeholder="your@email.com"
+            required
+            className="w-full bg-[#080808] border border-[#2a2825] rounded-lg pl-9 pr-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 outline-none focus:border-[#c4a87c] focus:ring-2 focus:ring-[#c4a87c]/20 transition-all duration-200"
+          />
+        </div>
+        <button
+          type="submit"
+          disabled={status === "loading"}
+          className="shrink-0 gold-gradient text-[#080808] text-sm font-semibold px-4 py-2.5 rounded-lg hover:opacity-90 transition-opacity duration-200 disabled:opacity-50"
+        >
+          {status === "loading" ? "..." : "Subscribe"}
+        </button>
+      </div>
+      {status === "error" && (
+        <p className="text-xs text-red-400">{message}</p>
+      )}
+    </form>
   );
 }
 
@@ -121,33 +193,7 @@ export function SiteFooter() {
                 the world.
               </p>
             </div>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex gap-2 w-full sm:w-auto"
-              aria-label="Newsletter signup"
-            >
-              <label htmlFor="footer-email" className="sr-only">
-                Email address
-              </label>
-              <div className="relative flex-1 sm:w-56">
-                <Mail
-                  size={15}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none"
-                />
-                <input
-                  id="footer-email"
-                  type="email"
-                  placeholder="your@email.com"
-                  className="w-full bg-[#080808] border border-[#2a2825] rounded-lg pl-9 pr-3 py-2.5 text-sm text-zinc-100 placeholder:text-zinc-600 outline-none focus:border-[#c4a87c] focus:ring-2 focus:ring-[#c4a87c]/20 transition-all duration-200"
-                />
-              </div>
-              <button
-                type="submit"
-                className="shrink-0 gold-gradient text-[#080808] text-sm font-semibold px-4 py-2.5 rounded-lg hover:opacity-90 transition-opacity duration-200"
-              >
-                Subscribe
-              </button>
-            </form>
+            <SubscribeForm />
           </div>
         </div>
       </div>
