@@ -5,8 +5,12 @@ import { blogPosts } from "@/data/blogs";
 
 const BASE_URL = "https://www.50bestcharms.com";
 
+// Use a fixed date so the sitemap doesn't change on every build.
+// Update this when you make real content changes.
+const LAST_CONTENT_UPDATE = "2026-05-11T00:00:00.000Z";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date().toISOString();
+  const now = LAST_CONTENT_UPDATE;
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
